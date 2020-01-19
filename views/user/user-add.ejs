@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partial/head %>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main-header">
+			<!-- Logo Header -->
+		<% include ../partial/header %>
+			<!-- End Logo Header -->
+
+			<!-- Navbar Header -->
+			<% include ../partial/navbar %>
+			<!-- End Navbar -->
+		</div>
+
+		<!-- Sidebar -->
+		<% include ../partial/sidebar %>
+		<!-- End Sidebar -->
+
+		<div class="main-panel">
+			<div class="content">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header">
+								<div class="card-title">Sign Up</div>
+							</div>
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-8 col-lg-8">
+										<form action="/users/useradd" method="post" id="myform">
+                      <div class="form-group">
+  											<label for="name">User Name</label>
+  											<input type="text" name="name" id="name" class="form-control"  placeholder="User Name">
+  										</div>
+                    <div class="form-group">
+											<label for="email2">Email Address</label>
+											<input type="email" class="form-control" name="email" id="email" placeholder="Enter Email">
+											<small id="emailHelp2" class="form-text text-muted">We'll never share your email with anyone else.</small>
+										</div>
+										<div class="form-group">
+											<label for="password">Password</label>
+											<input type="password" name="pwd" class="form-control" id="pwd" placeholder="Password">
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+							<div class="card-action">
+								<button type="submit" class="btn btn-success">Sign Up</button>
+								<button class="btn btn-danger">Cancel</button>
+							</div>
+						</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%include ../partial/footer %>
+		</div>
+
+		<!-- Custom template | don't include it in your project! -->
+		<div class="custom-template">
+			<div class="title">Settings</div>
+			<div class="custom-content">
+				<div class="switcher">
+					<div class="switch-block">
+						<h4>Logo Header</h4>
+						<div class="btnSwitch">
+							<button type="button" class="changeLogoHeaderColor" data-color="dark"></button>
+							<button type="button" class="selected changeLogoHeaderColor" data-color="blue"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="purple"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="light-blue"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="green"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="orange"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="red"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="white"></button>
+							<br/>
+							<button type="button" class="changeLogoHeaderColor" data-color="dark2"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="blue2"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="purple2"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="light-blue2"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="green2"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="orange2"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="red2"></button>
+						</div>
+					</div>
+					<div class="switch-block">
+						<h4>Navbar Header</h4>
+						<div class="btnSwitch">
+							<button type="button" class="changeTopBarColor" data-color="dark"></button>
+							<button type="button" class="changeTopBarColor" data-color="blue"></button>
+							<button type="button" class="changeTopBarColor" data-color="purple"></button>
+							<button type="button" class="changeTopBarColor" data-color="light-blue"></button>
+							<button type="button" class="changeTopBarColor" data-color="green"></button>
+							<button type="button" class="changeTopBarColor" data-color="orange"></button>
+							<button type="button" class="changeTopBarColor" data-color="red"></button>
+							<button type="button" class="changeTopBarColor" data-color="white"></button>
+							<br/>
+							<button type="button" class="changeTopBarColor" data-color="dark2"></button>
+							<button type="button" class="selected changeTopBarColor" data-color="blue2"></button>
+							<button type="button" class="changeTopBarColor" data-color="purple2"></button>
+							<button type="button" class="changeTopBarColor" data-color="light-blue2"></button>
+							<button type="button" class="changeTopBarColor" data-color="green2"></button>
+							<button type="button" class="changeTopBarColor" data-color="orange2"></button>
+							<button type="button" class="changeTopBarColor" data-color="red2"></button>
+						</div>
+					</div>
+					<div class="switch-block">
+						<h4>Sidebar</h4>
+						<div class="btnSwitch">
+							<button type="button" class="selected changeSideBarColor" data-color="white"></button>
+							<button type="button" class="changeSideBarColor" data-color="dark"></button>
+							<button type="button" class="changeSideBarColor" data-color="dark2"></button>
+						</div>
+					</div>
+					<div class="switch-block">
+						<h4>Background</h4>
+						<div class="btnSwitch">
+							<button type="button" class="changeBackgroundColor" data-color="bg2"></button>
+							<button type="button" class="changeBackgroundColor selected" data-color="bg1"></button>
+							<button type="button" class="changeBackgroundColor" data-color="bg3"></button>
+							<button type="button" class="changeBackgroundColor" data-color="dark"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="custom-toggle">
+				<i class="flaticon-settings"></i>
+			</div>
+		</div>
+		<!-- End Custom template -->
+	</div>
+	<% include ../partial/script %>
+</body>
+<script src="/javascripts/jquery-3.4.1.js" charset="utf-8"></script>
+<script src="/javascripts/jquery.validate.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+  $('#email').blur(function () {
+    var datap = {email:$('#email').val()};
+    if(datap.email != ''){
+    $.ajax({url:'/users/duemail',data:datap,type:'POST',
+      success:function (result) {
+        if(result.status){
+          alert('email is duplicate');
+          $('#email').val('');
+          $('#email').focus();
+        }
+      }
+  })
+}
+  })
+  $('#myform').validate({
+  rules: {
+     name: {
+       required:true,
+       minlength: 3,
+       maxlength: 20
+     },
+     email:{
+       required:true,
+       emailExt:true
+    },
+    pwd:{
+     required:true,
+     minlength: 6,
+     maxlength: 20,
+     pwcheck:true
+    }
+   },
+   messages:{
+     name:{
+       required:'User Name field is required',
+     },
+     email:{
+       required:'User email is required'
+     },
+     pwd:{
+       required:'Password is required',
+       pwcheck:'Please enter 1 uppercase, 1 lowercase, 1 digit'
+     },
+     maxlength: $.validator.format("Please Insert max {0} character"),
+     minlength: $.validator.format("Please Insert aleast {0} character"),
+   }
+  })
+  jQuery.validator.addMethod("emailExt", function(value, element, param) {
+  return value.match(/^[a-zA-Z0-9_\.%\+\-]+@[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,}$/);
+    },'Your E-mail is wrong');
+
+    $.validator.addMethod("pwcheck", function(value) {
+       return /^[A-Za-z0-9\d=!\-@._*]*$/.test(value) // consists of only these
+           && /[a-z]/.test(value) // has a lowercase letter
+           && /[A-Z]/.test(value) // has a uppercase letter
+           && /\d/.test(value) // has a digit
+         });
+</script>
+</html>

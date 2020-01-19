@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<% include ../partial/head %>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main-header">
+			<!-- Logo Header -->
+		<% include ../partial/header %>
+			<!-- End Logo Header -->
+
+			<!-- Navbar Header -->
+			<% include ../partial/navbar %>
+			<!-- End Navbar -->
+		</div>
+
+		<!-- Sidebar -->
+		<% include ../partial/sidebar %>
+		<!-- End Sidebar -->
+
+		<div class="main-panel">
+			<div class="content">
+				<div class="row">
+
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<div class="card card-profile">
+							<div class="card-header" style="background-image: url('/assets/img/blogpost.jpg')">
+								<div class="profile-picture">
+									<div class="avatar avatar-xl">
+										<img src="/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="user-profile text-center">
+									<div class="name"><%= user.name %></div>
+									<div class="job"><%= user.email %></div>
+									<div class="desc">A man who hates loneliness</div>
+									<div class="social-media">
+										<a class="btn btn-info btn-twitter btn-sm btn-link" href="#">
+											<span class="btn-label just-icon"><i class="flaticon-twitter"></i> </span>
+										</a>
+										<a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#">
+											<span class="btn-label just-icon"><i class="flaticon-google-plus"></i> </span>
+										</a>
+										<a class="btn btn-primary btn-sm btn-link" rel="publisher" href="#">
+											<span class="btn-label just-icon"><i class="flaticon-facebook"></i> </span>
+										</a>
+										<a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#">
+											<span class="btn-label just-icon"><i class="flaticon-dribbble"></i> </span>
+										</a>
+									</div>
+									<div class="view-profile">
+										<div class="row">
+
+										<div class="col-md-6">
+											<a href="/users/userupdate/<%= user._id%>" class="btn btn-secondary btn-block">Update</a>
+										</div>
+										<div class="col-md-6">
+											<a href="#" onclick="del();" class="btn btn-secondary btn-block text-white">Delete</a>
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-footer">
+								<div class="row user-stats text-center">
+									<div class="col">
+										<div class="number"><%= post.length%></div>
+										<div class="title">Post</div>
+									</div>
+									<div class="col">
+										<div class="number">25K</div>
+										<div class="title">Followers</div>
+									</div>
+									<div class="col">
+										<div class="number">134</div>
+										<div class="title">Following</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%include ../partial/footer %>
+		</div>
+
+		<!-- Custom template | don't include it in your project! -->
+		<div class="custom-template">
+			<div class="title">Settings</div>
+			<div class="custom-content">
+				<div class="switcher">
+					<div class="switch-block">
+						<h4>Logo Header</h4>
+						<div class="btnSwitch">
+							<button type="button" class="changeLogoHeaderColor" data-color="dark"></button>
+							<button type="button" class="selected changeLogoHeaderColor" data-color="blue"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="purple"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="light-blue"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="green"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="orange"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="red"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="white"></button>
+							<br/>
+							<button type="button" class="changeLogoHeaderColor" data-color="dark2"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="blue2"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="purple2"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="light-blue2"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="green2"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="orange2"></button>
+							<button type="button" class="changeLogoHeaderColor" data-color="red2"></button>
+						</div>
+					</div>
+					<div class="switch-block">
+						<h4>Navbar Header</h4>
+						<div class="btnSwitch">
+							<button type="button" class="changeTopBarColor" data-color="dark"></button>
+							<button type="button" class="changeTopBarColor" data-color="blue"></button>
+							<button type="button" class="changeTopBarColor" data-color="purple"></button>
+							<button type="button" class="changeTopBarColor" data-color="light-blue"></button>
+							<button type="button" class="changeTopBarColor" data-color="green"></button>
+							<button type="button" class="changeTopBarColor" data-color="orange"></button>
+							<button type="button" class="changeTopBarColor" data-color="red"></button>
+							<button type="button" class="changeTopBarColor" data-color="white"></button>
+							<br/>
+							<button type="button" class="changeTopBarColor" data-color="dark2"></button>
+							<button type="button" class="selected changeTopBarColor" data-color="blue2"></button>
+							<button type="button" class="changeTopBarColor" data-color="purple2"></button>
+							<button type="button" class="changeTopBarColor" data-color="light-blue2"></button>
+							<button type="button" class="changeTopBarColor" data-color="green2"></button>
+							<button type="button" class="changeTopBarColor" data-color="orange2"></button>
+							<button type="button" class="changeTopBarColor" data-color="red2"></button>
+						</div>
+					</div>
+					<div class="switch-block">
+						<h4>Sidebar</h4>
+						<div class="btnSwitch">
+							<button type="button" class="selected changeSideBarColor" data-color="white"></button>
+							<button type="button" class="changeSideBarColor" data-color="dark"></button>
+							<button type="button" class="changeSideBarColor" data-color="dark2"></button>
+						</div>
+					</div>
+					<div class="switch-block">
+						<h4>Background</h4>
+						<div class="btnSwitch">
+							<button type="button" class="changeBackgroundColor" data-color="bg2"></button>
+							<button type="button" class="changeBackgroundColor selected" data-color="bg1"></button>
+							<button type="button" class="changeBackgroundColor" data-color="bg3"></button>
+							<button type="button" class="changeBackgroundColor" data-color="dark"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="custom-toggle">
+				<i class="flaticon-settings"></i>
+			</div>
+		</div>
+		<!-- End Custom template -->
+	</div>
+	<% include ../partial/script %>
+</body>
+<script type="text/javascript">
+	function del() {
+		var a = confirm("Are you sure for delete!!!");
+		if(a){
+			location.href = "/users/userdelete/<%= user._id %>";
+		}
+	}
+</script>
+</html>
