@@ -10,6 +10,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postsRouter = require('./routes/posts');
 
+//Restful api route
+var apiUsersRouter = require('./api/routes/users');
+var apiAdminRouter = require('./api/routes/admin');
+
 var app = express();
 
 // view engine setup
@@ -39,6 +43,8 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', indexRouter);
+app.use('/api/users',apiUsersRouter);
+app.use('/api',apiAdminRouter);
 app.use(function (req,res,next) {
   if (req.session.user) {
     next();
